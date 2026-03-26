@@ -1,0 +1,166 @@
+// app global css in SCSS form
+
+@import 'quasar/src/css/index.sass';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+// Typing zone styles
+.typing-zone {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 3.2rem;
+  letter-spacing: 0.1em;
+}
+
+.char-pending {
+  color: #9e9e9e;
+}
+
+.char-correct {
+  color: #4caf50;
+}
+
+.char-error {
+  color: #f44336;
+  background-color: rgba(244, 67, 54, 0.2);
+  border-radius: 2px;
+}
+
+.char-corrected {
+  color: #ff9800;
+}
+
+// Cursor blink animation
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background-color: #2196f3;
+  vertical-align: text-bottom;
+  animation: cursor-blink 1s step-end infinite;
+  margin-right: 1px;
+}
+
+// Keyboard visualization
+.keyboard-container {
+  user-select: none;
+  padding: 16px 12px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.key {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  height: 72px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  font-weight: 700;
+  cursor: default;
+  transition: transform 0.1s, box-shadow 0.1s, filter 0.1s;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.97);
+  padding: 6px;
+  position: relative;
+}
+
+.key-wide {
+  min-width: 112px;
+}
+
+.key-wider {
+  min-width: 148px;
+}
+
+.key-widest {
+  min-width: 380px;
+}
+
+.key-shift-label {
+  font-size: 0.72rem;
+  opacity: 0.75;
+  line-height: 1;
+}
+
+.key-main-label {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.next-key {
+  transform: scale(1.12);
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.6);
+  filter: brightness(1.4);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  z-index: 1;
+}
+
+.pressed-key {
+  transform: scale(0.9) translateY(3px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  filter: brightness(1.8);
+  transition: transform 0.06s ease, filter 0.06s ease;
+}
+
+@keyframes error-flash {
+  0% { background-color: #f44336 !important; transform: scale(1.1); }
+  50% { background-color: #f44336 !important; }
+  100% { transform: scale(1); }
+}
+
+.error-flash {
+  animation: error-flash 0.3s ease-out forwards;
+}
+
+// Results card
+.results-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.results-card {
+  max-width: 480px;
+  width: 90%;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.star-rating {
+  font-size: 2rem;
+}

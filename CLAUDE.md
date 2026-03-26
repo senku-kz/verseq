@@ -37,6 +37,9 @@ pip install -r requirements.txt
 # or
 uv sync
 
+# Init database (first time only)
+python scripts/init_db.py
+
 # Run dev server (auto-reload)
 uvicorn app.main:app --reload --port 8000
 

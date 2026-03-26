@@ -1,0 +1,396 @@
+{
+  "en": [
+    {
+      "id": 1,
+      "title": "Home Row",
+      "description": "Keep fingers on home row. Feel the bumps on F and J.",
+      "allowed_chars": ["a","s","d","f","j","k","l",";","space"],
+      "exercises": [
+        {"id": "en-1-1", "title": "Exercise 1", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-1-2", "title": "Exercise 2", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-1-3", "title": "Exercise 3", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-1-4", "title": "Exercise 4", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-1-5", "title": "Exercise 5", "min_wpm": 0, "min_accuracy": 80, "target_length": 150}
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Index Extensions",
+      "description": "Stretch index fingers inward.",
+      "allowed_chars": ["a","s","d","f","g","h","j","k","l",";","space"],
+      "exercises": [
+        {"id": "en-2-1", "title": "Exercise 1", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-2-2", "title": "Exercise 2", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-2-3", "title": "Exercise 3", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-2-4", "title": "Exercise 4", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-2-5", "title": "Exercise 5", "min_wpm": 0, "min_accuracy": 80, "target_length": 150}
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Top Row — Middle",
+      "description": "Middle fingers reach up.",
+      "allowed_chars": ["a","s","d","e","f","g","h","i","j","k","l",";","space"],
+      "exercises": [
+        {"id": "en-3-1", "title": "Exercise 1", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-3-2", "title": "Exercise 2", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-3-3", "title": "Exercise 3", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-3-4", "title": "Exercise 4", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-3-5", "title": "Exercise 5", "min_wpm": 0, "min_accuracy": 80, "target_length": 150}
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Top Row — Ring & Index",
+      "description": "Ring and index reach up.",
+      "allowed_chars": ["a","s","d","e","f","g","h","i","j","k","l","o","r","u","w",";","space"],
+      "exercises": [
+        {"id": "en-4-1", "title": "Exercise 1", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-4-2", "title": "Exercise 2", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-4-3", "title": "Exercise 3", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-4-4", "title": "Exercise 4", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "en-4-5", "title": "Exercise 5", "min_wpm": 0, "min_accuracy": 80, "target_length": 150}
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Top Row — Center",
+      "description": "Index fingers stretch to T and Y.",
+      "allowed_chars": ["a","s","d","e","f","g","h","i","j","k","l","o","r","t","u","w","y",";","space"],
+      "exercises": [
+        {"id": "en-5-1", "title": "Exercise 1", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-5-2", "title": "Exercise 2", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-5-3", "title": "Exercise 3", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-5-4", "title": "Exercise 4", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-5-5", "title": "Exercise 5", "min_wpm": 10, "min_accuracy": 85, "target_length": 200}
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Bottom Row — Middle",
+      "description": "Middle fingers reach down.",
+      "allowed_chars": ["a","s","d","e","f","g","h","i","j","k","l","o","r","t","u","w","y","c",",",";","space"],
+      "exercises": [
+        {"id": "en-6-1", "title": "Exercise 1", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-6-2", "title": "Exercise 2", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-6-3", "title": "Exercise 3", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-6-4", "title": "Exercise 4", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-6-5", "title": "Exercise 5", "min_wpm": 10, "min_accuracy": 85, "target_length": 200}
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Bottom Row — Index",
+      "description": "Index fingers reach down.",
+      "allowed_chars": ["a","s","d","e","f","g","h","i","j","k","l","o","r","t","u","w","y","b","c","m","n","v",",",";","space"],
+      "exercises": [
+        {"id": "en-7-1", "title": "Exercise 1", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-7-2", "title": "Exercise 2", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-7-3", "title": "Exercise 3", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-7-4", "title": "Exercise 4", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-7-5", "title": "Exercise 5", "min_wpm": 10, "min_accuracy": 85, "target_length": 200}
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Bottom Row — Ring",
+      "description": "Ring fingers reach down.",
+      "allowed_chars": ["a","s","d","e","f","g","h","i","j","k","l","o","r","t","u","w","y","b","c","m","n","v","x",".",",",";","space"],
+      "exercises": [
+        {"id": "en-8-1", "title": "Exercise 1", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-8-2", "title": "Exercise 2", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-8-3", "title": "Exercise 3", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-8-4", "title": "Exercise 4", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-8-5", "title": "Exercise 5", "min_wpm": 10, "min_accuracy": 85, "target_length": 200}
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Pinkies",
+      "description": "Pinky fingers take the edge keys.",
+      "allowed_chars": ["a","s","d","e","f","g","h","i","j","k","l","o","p","q","r","t","u","w","y","b","c","m","n","v","x","z",".",",","/",";","space"],
+      "exercises": [
+        {"id": "en-9-1", "title": "Exercise 1", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-9-2", "title": "Exercise 2", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-9-3", "title": "Exercise 3", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-9-4", "title": "Exercise 4", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "en-9-5", "title": "Exercise 5", "min_wpm": 10, "min_accuracy": 85, "target_length": 200}
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Full Alphabet",
+      "description": "All letters unlocked. Focus on accuracy.",
+      "allowed_chars": ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","space"],
+      "exercises": [
+        {"id": "en-10-1", "title": "Exercise 1", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-10-2", "title": "Exercise 2", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-10-3", "title": "Exercise 3", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-10-4", "title": "Exercise 4", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-10-5", "title": "Exercise 5", "min_wpm": 15, "min_accuracy": 88, "target_length": 250}
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Numbers 1–5",
+      "description": "Left hand numbers.",
+      "allowed_chars": ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","space"],
+      "exercises": [
+        {"id": "en-11-1", "title": "Exercise 1", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-11-2", "title": "Exercise 2", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-11-3", "title": "Exercise 3", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-11-4", "title": "Exercise 4", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-11-5", "title": "Exercise 5", "min_wpm": 15, "min_accuracy": 88, "target_length": 250}
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Numbers 6–0",
+      "description": "Right hand numbers.",
+      "allowed_chars": ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","space"],
+      "exercises": [
+        {"id": "en-12-1", "title": "Exercise 1", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-12-2", "title": "Exercise 2", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-12-3", "title": "Exercise 3", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-12-4", "title": "Exercise 4", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "en-12-5", "title": "Exercise 5", "min_wpm": 15, "min_accuracy": 88, "target_length": 250}
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Punctuation",
+      "description": "Common punctuation marks.",
+      "allowed_chars": ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","-","=","[","]","'","space"],
+      "exercises": [
+        {"id": "en-13-1", "title": "Exercise 1", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-13-2", "title": "Exercise 2", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-13-3", "title": "Exercise 3", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-13-4", "title": "Exercise 4", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-13-5", "title": "Exercise 5", "min_wpm": 20, "min_accuracy": 90, "target_length": 250}
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Shift & Capitals",
+      "description": "Capital letters and symbols with Shift.",
+      "allowed_chars": ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","1","2","3","4","5","6","7","8","9","0","-","=","[","]","'","space"],
+      "exercises": [
+        {"id": "en-14-1", "title": "Exercise 1", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-14-2", "title": "Exercise 2", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-14-3", "title": "Exercise 3", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-14-4", "title": "Exercise 4", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-14-5", "title": "Exercise 5", "min_wpm": 20, "min_accuracy": 90, "target_length": 250}
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Speed Run",
+      "description": "Full text challenge. Aim for 30+ WPM.",
+      "allowed_chars": ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","1","2","3","4","5","6","7","8","9","0","-","=","[","]","'",".",",","/",";","space"],
+      "exercises": [
+        {"id": "en-15-1", "title": "Exercise 1", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-15-2", "title": "Exercise 2", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-15-3", "title": "Exercise 3", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-15-4", "title": "Exercise 4", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "en-15-5", "title": "Exercise 5", "min_wpm": 20, "min_accuracy": 90, "target_length": 250}
+      ]
+    }
+  ],
+  "ru": [
+    {
+      "id": 1,
+      "title": "Домашний ряд",
+      "description": "Держите пальцы на домашнем ряду. Почувствуйте выступы на Ф и О.",
+      "allowed_chars": ["ф","ы","в","а","п","р","о","л","д","ж","space"],
+      "exercises": [
+        {"id": "ru-1-1", "title": "Упражнение 1", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-1-2", "title": "Упражнение 2", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-1-3", "title": "Упражнение 3", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-1-4", "title": "Упражнение 4", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-1-5", "title": "Упражнение 5", "min_wpm": 0, "min_accuracy": 80, "target_length": 150}
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Указательные пальцы",
+      "description": "Тяните указательные пальцы внутрь.",
+      "allowed_chars": ["ф","ы","в","а","п","р","о","л","д","ж","е","н","space"],
+      "exercises": [
+        {"id": "ru-2-1", "title": "Упражнение 1", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-2-2", "title": "Упражнение 2", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-2-3", "title": "Упражнение 3", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-2-4", "title": "Упражнение 4", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-2-5", "title": "Упражнение 5", "min_wpm": 0, "min_accuracy": 80, "target_length": 150}
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Верхний ряд — средние",
+      "description": "Средние пальцы тянутся вверх.",
+      "allowed_chars": ["ф","ы","в","а","п","р","о","л","д","ж","е","н","у","к","space"],
+      "exercises": [
+        {"id": "ru-3-1", "title": "Упражнение 1", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-3-2", "title": "Упражнение 2", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-3-3", "title": "Упражнение 3", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-3-4", "title": "Упражнение 4", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-3-5", "title": "Упражнение 5", "min_wpm": 0, "min_accuracy": 80, "target_length": 150}
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Верхний ряд — безымянные",
+      "description": "Безымянные и указательные тянутся вверх.",
+      "allowed_chars": ["ф","ы","в","а","п","р","о","л","д","ж","е","н","у","к","ц","й","г","ш","space"],
+      "exercises": [
+        {"id": "ru-4-1", "title": "Упражнение 1", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-4-2", "title": "Упражнение 2", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-4-3", "title": "Упражнение 3", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-4-4", "title": "Упражнение 4", "min_wpm": 0, "min_accuracy": 80, "target_length": 150},
+        {"id": "ru-4-5", "title": "Упражнение 5", "min_wpm": 0, "min_accuracy": 80, "target_length": 150}
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Верхний ряд — мизинцы",
+      "description": "Мизинцы берут крайние клавиши верхнего ряда.",
+      "allowed_chars": ["ф","ы","в","а","п","р","о","л","д","ж","е","н","у","к","ц","й","г","ш","з","х","щ","ъ","space"],
+      "exercises": [
+        {"id": "ru-5-1", "title": "Упражнение 1", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-5-2", "title": "Упражнение 2", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-5-3", "title": "Упражнение 3", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-5-4", "title": "Упражнение 4", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-5-5", "title": "Упражнение 5", "min_wpm": 10, "min_accuracy": 85, "target_length": 200}
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Нижний ряд — средние",
+      "description": "Средние пальцы тянутся вниз.",
+      "allowed_chars": ["ф","ы","в","а","п","р","о","л","д","ж","е","н","у","к","ц","й","г","ш","з","х","щ","ъ","с","ч",",","space"],
+      "exercises": [
+        {"id": "ru-6-1", "title": "Упражнение 1", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-6-2", "title": "Упражнение 2", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-6-3", "title": "Упражнение 3", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-6-4", "title": "Упражнение 4", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-6-5", "title": "Упражнение 5", "min_wpm": 10, "min_accuracy": 85, "target_length": 200}
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Нижний ряд — указательные",
+      "description": "Указательные пальцы тянутся вниз.",
+      "allowed_chars": ["ф","ы","в","а","п","р","о","л","д","ж","е","н","у","к","ц","й","г","ш","з","х","щ","ъ","с","ч","м","и","т","ь",",","space"],
+      "exercises": [
+        {"id": "ru-7-1", "title": "Упражнение 1", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-7-2", "title": "Упражнение 2", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-7-3", "title": "Упражнение 3", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-7-4", "title": "Упражнение 4", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-7-5", "title": "Упражнение 5", "min_wpm": 10, "min_accuracy": 85, "target_length": 200}
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Нижний ряд — безымянные",
+      "description": "Безымянные пальцы тянутся вниз.",
+      "allowed_chars": ["ф","ы","в","а","п","р","о","л","д","ж","е","н","у","к","ц","й","г","ш","з","х","щ","ъ","с","ч","м","и","т","ь","я","б","ю",".",",","space"],
+      "exercises": [
+        {"id": "ru-8-1", "title": "Упражнение 1", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-8-2", "title": "Упражнение 2", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-8-3", "title": "Упражнение 3", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-8-4", "title": "Упражнение 4", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-8-5", "title": "Упражнение 5", "min_wpm": 10, "min_accuracy": 85, "target_length": 200}
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Мизинцы",
+      "description": "Мизинцы берут крайние клавиши.",
+      "allowed_chars": ["ф","ы","в","а","п","р","о","л","д","ж","е","н","у","к","ц","й","г","ш","з","х","щ","ъ","с","ч","м","и","т","ь","я","б","ю",".",",","space"],
+      "exercises": [
+        {"id": "ru-9-1", "title": "Упражнение 1", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-9-2", "title": "Упражнение 2", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-9-3", "title": "Упражнение 3", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-9-4", "title": "Упражнение 4", "min_wpm": 10, "min_accuracy": 85, "target_length": 200},
+        {"id": "ru-9-5", "title": "Упражнение 5", "min_wpm": 10, "min_accuracy": 85, "target_length": 200}
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Все буквы",
+      "description": "Все буквы разблокированы. Сосредоточьтесь на точности.",
+      "allowed_chars": ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я","space"],
+      "exercises": [
+        {"id": "ru-10-1", "title": "Упражнение 1", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-10-2", "title": "Упражнение 2", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-10-3", "title": "Упражнение 3", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-10-4", "title": "Упражнение 4", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-10-5", "title": "Упражнение 5", "min_wpm": 15, "min_accuracy": 88, "target_length": 250}
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Цифры 1–5",
+      "description": "Цифры левой руки.",
+      "allowed_chars": ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я","1","2","3","4","5","space"],
+      "exercises": [
+        {"id": "ru-11-1", "title": "Упражнение 1", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-11-2", "title": "Упражнение 2", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-11-3", "title": "Упражнение 3", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-11-4", "title": "Упражнение 4", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-11-5", "title": "Упражнение 5", "min_wpm": 15, "min_accuracy": 88, "target_length": 250}
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Цифры 6–0",
+      "description": "Цифры правой руки.",
+      "allowed_chars": ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я","1","2","3","4","5","6","7","8","9","0","space"],
+      "exercises": [
+        {"id": "ru-12-1", "title": "Упражнение 1", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-12-2", "title": "Упражнение 2", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-12-3", "title": "Упражнение 3", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-12-4", "title": "Упражнение 4", "min_wpm": 15, "min_accuracy": 88, "target_length": 250},
+        {"id": "ru-12-5", "title": "Упражнение 5", "min_wpm": 15, "min_accuracy": 88, "target_length": 250}
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Пунктуация",
+      "description": "Распространённые знаки препинания.",
+      "allowed_chars": ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я","1","2","3","4","5","6","7","8","9","0","-","=","'",";",":","space"],
+      "exercises": [
+        {"id": "ru-13-1", "title": "Упражнение 1", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-13-2", "title": "Упражнение 2", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-13-3", "title": "Упражнение 3", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-13-4", "title": "Упражнение 4", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-13-5", "title": "Упражнение 5", "min_wpm": 20, "min_accuracy": 90, "target_length": 250}
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Заглавные буквы",
+      "description": "Заглавные буквы и символы с Shift.",
+      "allowed_chars": ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я","А","Б","В","Г","Д","Е","Ё","Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х","Ц","Ч","Ш","Щ","Ъ","Ы","Ь","Э","Ю","Я","1","2","3","4","5","6","7","8","9","0","-","=","'",";",":","space"],
+      "exercises": [
+        {"id": "ru-14-1", "title": "Упражнение 1", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-14-2", "title": "Упражнение 2", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-14-3", "title": "Упражнение 3", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-14-4", "title": "Упражнение 4", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-14-5", "title": "Упражнение 5", "min_wpm": 20, "min_accuracy": 90, "target_length": 250}
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Скорость",
+      "description": "Полный текстовый вызов. Стремитесь к 30+ WPM.",
+      "allowed_chars": ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я","А","Б","В","Г","Д","Е","Ё","Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х","Ц","Ч","Ш","Щ","Ъ","Ы","Ь","Э","Ю","Я","1","2","3","4","5","6","7","8","9","0","-","=","'",";",":",".","," ,"space"],
+      "exercises": [
+        {"id": "ru-15-1", "title": "Упражнение 1", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-15-2", "title": "Упражнение 2", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-15-3", "title": "Упражнение 3", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-15-4", "title": "Упражнение 4", "min_wpm": 20, "min_accuracy": 90, "target_length": 250},
+        {"id": "ru-15-5", "title": "Упражнение 5", "min_wpm": 20, "min_accuracy": 90, "target_length": 250}
+      ]
+    }
+  ]
+}
