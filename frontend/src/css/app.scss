@@ -73,13 +73,14 @@ body {
   height: 72px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.35);
-  font-weight: 700;
+  font-weight: 600;
   cursor: default;
   transition: transform 0.1s, box-shadow 0.1s, filter 0.1s;
   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
   color: rgba(255, 255, 255, 0.97);
-  padding: 6px;
+  padding: 4px 8px;
   position: relative;
+  gap: 6px;
 }
 
 .key-wide {
@@ -95,13 +96,13 @@ body {
 }
 
 .key-shift-label {
-  font-size: 0.72rem;
-  opacity: 0.75;
+  font-size: 1.15rem;
+  opacity: 0.7;
   line-height: 1;
 }
 
 .key-main-label {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1;
 }
 
