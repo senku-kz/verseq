@@ -27,7 +27,7 @@
           <div class="col-12 col-sm-6 col-md-2">
             <q-card class="summary-card">
               <q-card-section class="text-center">
-                <div class="text-h2 text-orange">{{ stats?.streak_days ?? 0 }}</div>
+                <div class="stat-val text-orange">{{ stats?.streak_days ?? 0 }}</div>
                 <div class="text-caption text-grey-5 q-mt-xs">🔥 Day Streak</div>
               </q-card-section>
             </q-card>
@@ -35,7 +35,7 @@
           <div class="col-12 col-sm-6 col-md-2">
             <q-card class="summary-card">
               <q-card-section class="text-center">
-                <div class="text-h2 text-primary">{{ stats?.best_cpm?.toFixed(0) ?? '—' }}</div>
+                <div class="stat-val text-primary">{{ stats?.best_cpm?.toFixed(0) ?? '—' }}</div>
                 <div class="text-caption text-grey-5 q-mt-xs">Best CPM</div>
               </q-card-section>
             </q-card>
@@ -43,7 +43,7 @@
           <div class="col-12 col-sm-6 col-md-2">
             <q-card class="summary-card">
               <q-card-section class="text-center">
-                <div class="text-h2 text-blue-4">{{ stats?.avg_cpm?.toFixed(0) ?? '—' }}</div>
+                <div class="stat-val text-blue-4">{{ stats?.avg_cpm?.toFixed(0) ?? '—' }}</div>
                 <div class="text-caption text-grey-5 q-mt-xs">Avg CPM</div>
               </q-card-section>
             </q-card>
@@ -51,7 +51,7 @@
           <div class="col-12 col-sm-6 col-md-2">
             <q-card class="summary-card">
               <q-card-section class="text-center">
-                <div class="text-h2 text-purple-4">{{ stats?.best_wpm?.toFixed(1) ?? '—' }}</div>
+                <div class="stat-val text-purple-4">{{ stats?.best_wpm?.toFixed(1) ?? '—' }}</div>
                 <div class="text-caption text-grey-5 q-mt-xs">Best WPM</div>
               </q-card-section>
             </q-card>
@@ -59,7 +59,7 @@
           <div class="col-12 col-sm-6 col-md-2">
             <q-card class="summary-card">
               <q-card-section class="text-center">
-                <div class="text-h2 text-positive">{{ stats?.avg_accuracy?.toFixed(1) ?? '—' }}%</div>
+                <div class="stat-val text-positive">{{ stats?.avg_accuracy?.toFixed(1) ?? '—' }}%</div>
                 <div class="text-caption text-grey-5 q-mt-xs">Avg Accuracy</div>
               </q-card-section>
             </q-card>
@@ -67,7 +67,7 @@
           <div class="col-12 col-sm-6 col-md-2">
             <q-card class="summary-card">
               <q-card-section class="text-center">
-                <div class="text-h2 text-secondary">{{ stats?.total_sessions ?? 0 }}</div>
+                <div class="stat-val text-secondary">{{ stats?.total_sessions ?? 0 }}</div>
                 <div class="text-caption text-grey-5 q-mt-xs">Total Sessions</div>
               </q-card-section>
             </q-card>
@@ -464,6 +464,15 @@ onMounted(() => {
 .summary-card {
   background: #1e1e2e;
   border: 1px solid #2a2a3e;
+}
+
+.stat-val {
+  font-size: clamp(1.6rem, 2.8vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .wpm-chart-wrapper {
