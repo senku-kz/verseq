@@ -22,6 +22,7 @@
         :options="[
           { label: 'Free', value: 'free' },
           { label: 'Adaptive', value: 'adaptive' },
+          { label: 'Bigrams', value: 'bigrams' },
         ]"
         color="primary"
         text-color="white"
@@ -197,11 +198,16 @@ async function fetchNewText() {
   }
 }
 
-function onFinished(stats: TypingStats) {
+async function onFinished(stats: TypingStats) {
   finishedStats.value = stats
   showResults.value = true
 
   if (authStore.isAuthenticated) {
+    const tokenOk = await authStore.ensureFreshToken()
+    if (!tokenOk) {
+      $q.notify({ type: 'warning', message: 'Session not saved — please sign in again' })
+      return
+    }
     sessionsApi
       .submit({
         language: settings.lang,

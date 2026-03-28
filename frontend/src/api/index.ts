@@ -1,4 +1,5 @@
 import axios, { type AxiosInstance } from 'axios'
+import { getAccessToken, getRefreshToken, setTokens, clearTokens } from '../tokenManager'
 import type {
   TextResponse,
   SessionSubmit,
@@ -24,9 +25,7 @@ const api: AxiosInstance = axios.create({
 
 // Request interceptor: attach Bearer token
 api.interceptors.request.use((config) => {
-  // Dynamically import to avoid circular dependency
-  // Access pinia store at request time
-  const token = getStoredToken()
+  const token = getAccessToken()
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
   }
@@ -40,16 +39,19 @@ api.interceptors.response.use(
     const originalRequest = error.config
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true
-      const refreshToken = getStoredRefreshToken()
+      const refreshToken = getRefreshToken()
       if (refreshToken) {
         try {
           const response = await authApi.refresh(refreshToken)
-          setStoredToken(response.access_token)
-          setStoredRefreshToken(response.refresh_token)
+          setTokens(response.access_token, response.refresh_token)
+          // Also sync back to Pinia's persisted localStorage so the store
+          // stays consistent across page reloads
+          _syncTokensToStorage(response.access_token, response.refresh_token)
           originalRequest.headers.Authorization = `Bearer ${response.access_token}`
           return api(originalRequest)
         } catch {
-          clearStoredTokens()
+          clearTokens()
+          window.dispatchEvent(new CustomEvent('verseq:auth-expired'))
         }
       }
     }
@@ -57,58 +59,14 @@ api.interceptors.response.use(
   }
 )
 
-// Token storage helpers (localStorage directly to avoid circular pinia imports)
-function getStoredToken(): string | null {
-  try {
-    const raw = localStorage.getItem('auth')
-    if (!raw) return null
-    const parsed = JSON.parse(raw)
-    return parsed.accessToken ?? null
-  } catch {
-    return null
-  }
-}
-
-function getStoredRefreshToken(): string | null {
-  try {
-    const raw = localStorage.getItem('auth')
-    if (!raw) return null
-    const parsed = JSON.parse(raw)
-    return parsed.refreshToken ?? null
-  } catch {
-    return null
-  }
-}
-
-function setStoredToken(token: string): void {
+// Sync refreshed tokens back into Pinia's persisted localStorage entry so
+// the Pinia store and tokenManager stay consistent across page reloads.
+function _syncTokensToStorage(access: string, refresh: string): void {
   try {
     const raw = localStorage.getItem('auth')
     const parsed = raw ? JSON.parse(raw) : {}
-    parsed.accessToken = token
-    localStorage.setItem('auth', JSON.stringify(parsed))
-  } catch {
-    // ignore
-  }
-}
-
-function setStoredRefreshToken(token: string): void {
-  try {
-    const raw = localStorage.getItem('auth')
-    const parsed = raw ? JSON.parse(raw) : {}
-    parsed.refreshToken = token
-    localStorage.setItem('auth', JSON.stringify(parsed))
-  } catch {
-    // ignore
-  }
-}
-
-function clearStoredTokens(): void {
-  try {
-    const raw = localStorage.getItem('auth')
-    const parsed = raw ? JSON.parse(raw) : {}
-    delete parsed.accessToken
-    delete parsed.refreshToken
-    delete parsed.user
+    parsed.accessToken = access
+    parsed.refreshToken = refresh
     localStorage.setItem('auth', JSON.stringify(parsed))
   } catch {
     // ignore

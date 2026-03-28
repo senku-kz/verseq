@@ -113,6 +113,25 @@ class TextGenerator:
                 words.append(word)
                 current_len += len(word) + 1
 
+        elif mode == "bigrams":
+            # Generate text as a sequence of bigrams separated by spaces.
+            # If weak_bigrams provided, bias toward those; otherwise use corpus frequencies.
+            if weak_bigrams:
+                pool = list(weak_bigrams.keys())
+                weights = [float(v) for v in weak_bigrams.values()]
+            else:
+                all_bigrams = self._bigrams.get(lang, {})
+                pool = list(all_bigrams.keys())
+                weights = [float(v) for v in all_bigrams.values()]
+
+            if not pool:
+                return ""
+
+            while current_len < target_length:
+                bigram = random.choices(pool, weights=weights, k=1)[0]
+                words.append(bigram)
+                current_len += len(bigram) + 1
+
         else:  # free mode
             while current_len < target_length:
                 if random.random() < 0.1:

@@ -283,7 +283,7 @@ async function loadExercise() {
   }
 }
 
-function onFinished(stats: TypingStats) {
+async function onFinished(stats: TypingStats) {
   finishedStats.value = stats
   const exercise = currentExercise.value
   if (exercise) {
@@ -291,8 +291,9 @@ function onFinished(stats: TypingStats) {
   }
   showResults.value = true
 
-  // Save session (fire and forget)
   if (authStore.isAuthenticated && exercise) {
+    const tokenOk = await authStore.ensureFreshToken()
+    if (!tokenOk) return
     sessionsApi
       .submit({
         exercise_id: exercise.id,

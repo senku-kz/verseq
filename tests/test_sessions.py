@@ -1,5 +1,9 @@
 import pytest
 from httpx import AsyncClient
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.models.models import TypingSession, User
 
 
 # ─── helpers ──────────────────────────────────────────────────────────────────
@@ -168,3 +172,105 @@ async def test_lesson_progress_updates_on_better_result(client: AsyncClient):
     r = await client.get("/api/v1/lessons/1?lang=en", headers=_auth(token))
     exercises = {e["id"]: e for e in r.json()["exercises"]}
     assert exercises["en-1-1"]["progress"]["best_wpm"] == 40.0
+
+
+# ─── DB-level field verification ─────────────────────────────────────────────
+
+@pytest.mark.asyncio
+async def test_authenticated_session_has_user_id_in_db(
+    client: AsyncClient, db_session: AsyncSession
+):
+    """Core regression: authenticated submit must write user_id (not NULL) to DB."""
+    token = await _register(client, "db_uid", "db_uid@example.com")
+    resp = await _submit(client, token, wpm=50.0, cpm=250.0, accuracy=95.0)
+    session_id = resp["id"]
+
+    row = await db_session.get(TypingSession, session_id)
+    assert row is not None, "Session not found in DB"
+    assert row.user_id is not None, "user_id is NULL for authenticated session"
+
+
+@pytest.mark.asyncio
+async def test_authenticated_session_user_id_matches_token(
+    client: AsyncClient, db_session: AsyncSession
+):
+    """user_id stored in DB must match the token owner's actual user id."""
+    token = await _register(client, "db_match", "db_match@example.com")
+    resp = await _submit(client, token, wpm=40.0)
+    session_id = resp["id"]
+
+    # Resolve the user from the token via /auth/me
+    me = await client.get("/api/v1/auth/me", headers=_auth(token))
+    expected_user_id = me.json()["id"]
+
+    row = await db_session.get(TypingSession, session_id)
+    assert row.user_id == expected_user_id
+
+
+@pytest.mark.asyncio
+async def test_anonymous_session_has_null_user_id_in_db(
+    client: AsyncClient, db_session: AsyncSession
+):
+    """Anonymous submit must write user_id = NULL to DB (expected behaviour)."""
+    resp = await _submit(client)
+    session_id = resp["id"]
+
+    row = await db_session.get(TypingSession, session_id)
+    assert row is not None
+    assert row.user_id is None
+
+
+@pytest.mark.asyncio
+async def test_all_numeric_fields_stored_correctly(
+    client: AsyncClient, db_session: AsyncSession
+):
+    """All numeric fields (wpm, cpm, accuracy, duration_ms) reach the DB intact."""
+    token = await _register(client, "db_fields", "db_fields@example.com")
+    resp = await _submit(
+        client, token,
+        wpm=72.5, cpm=362.0, accuracy=98.7, duration_ms=61000, language="ru",
+    )
+    session_id = resp["id"]
+
+    row = await db_session.get(TypingSession, session_id)
+    assert row.wpm == pytest.approx(72.5)
+    assert row.cpm == pytest.approx(362.0)
+    assert row.accuracy == pytest.approx(98.7)
+    assert row.duration_ms == 61000
+    assert row.language == "ru"
+
+
+@pytest.mark.asyncio
+async def test_exercise_id_stored_in_db(
+    client: AsyncClient, db_session: AsyncSession
+):
+    """exercise_id field is written to DB when provided."""
+    token = await _register(client, "db_exid", "db_exid@example.com")
+    resp = await _submit(client, token, exercise_id="en-1-1", wpm=35.0, accuracy=93.0)
+    session_id = resp["id"]
+
+    row = await db_session.get(TypingSession, session_id)
+    assert row.exercise_id == "en-1-1"
+
+
+@pytest.mark.asyncio
+async def test_multiple_sessions_all_have_user_id(
+    client: AsyncClient, db_session: AsyncSession
+):
+    """Every session in a multi-submit sequence stores the correct user_id."""
+    token = await _register(client, "db_multi", "db_multi@example.com")
+    ids = []
+    for wpm in (30.0, 40.0, 50.0):
+        r = await _submit(client, token, wpm=wpm)
+        ids.append(r["id"])
+
+    me = await client.get("/api/v1/auth/me", headers=_auth(token))
+    expected_uid = me.json()["id"]
+
+    result = await db_session.execute(
+        select(TypingSession).where(TypingSession.id.in_(ids))
+    )
+    rows = result.scalars().all()
+    assert len(rows) == 3
+    for row in rows:
+        assert row.user_id == expected_uid, f"Session {row.id} has user_id={row.user_id}"

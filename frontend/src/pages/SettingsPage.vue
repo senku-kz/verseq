@@ -210,6 +210,7 @@ const authStore = useAuthStore()
 const practiceModeOptions = [
   { label: 'Free', value: 'free' },
   { label: 'Adaptive', value: 'adaptive' },
+  { label: 'Bigrams', value: 'bigrams' },
 ]
 
 function logout() {

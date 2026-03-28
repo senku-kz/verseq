@@ -40,7 +40,6 @@ export function useTypingEngine(initialText: string) {
 
   function startTimer() {
     startTime = Date.now()
-    timerHandle = setInterval(updateStats, 200)
   }
 
   function stopTimer() {
@@ -102,6 +101,7 @@ export function useTypingEngine(initialText: string) {
           chars.value[cursor.value] = { ...prev, state: 'pending' }
         }
       }
+      updateStats()
       return
     }
 
@@ -118,12 +118,12 @@ export function useTypingEngine(initialText: string) {
       chars.value[cursor.value] = { ...currentChar, state: 'correct' }
       cursor.value++
       lastErrorKey.value = null
+      updateStats()
 
       // Check if finished
       if (cursor.value >= chars.value.length) {
         isFinished.value = true
         stopTimer()
-        updateStats()
       }
     } else {
       // Wrong keypress

@@ -13,7 +13,7 @@ from app.services.generator import get_generator
 router = APIRouter(prefix="/api/v1/practice", tags=["practice"])
 
 VALID_LANGS = ("en", "ru")
-VALID_MODES = ("free", "adaptive", "structured")
+VALID_MODES = ("free", "adaptive", "structured", "bigrams")
 
 
 @router.get("/text", response_model=TextResponse)
@@ -39,7 +39,7 @@ async def get_practice_text(
     generator = get_generator()
     wb: dict[str, int] | None = None
 
-    if mode == "adaptive":
+    if mode in ("adaptive", "bigrams"):
         if current_user is not None:
             matrix = await adaptive_service.get_error_matrix(current_user.id, db)
             wb = adaptive_service.get_weak_bigrams(matrix) if matrix else None

@@ -50,6 +50,36 @@ def test_adaptive_returns_text():
     assert len(result) > 0
 
 
+def test_bigrams_mode_uses_two_char_tokens():
+    """Bigrams mode produces text where every space-separated token is 2 chars."""
+    generator = get_generator()
+    result = generator.generate(lang="en", mode="bigrams", target_length=100)
+    assert isinstance(result, str)
+    assert len(result) > 0
+    tokens = result.strip().split(" ")
+    for token in tokens:
+        assert len(token) == 2, f"Expected bigram, got: {repr(token)}"
+
+
+def test_bigrams_mode_ru():
+    generator = get_generator()
+    result = generator.generate(lang="ru", mode="bigrams", target_length=100)
+    assert len(result) > 0
+    tokens = result.strip().split(" ")
+    for token in tokens:
+        assert len(token) == 2
+
+
+def test_bigrams_mode_with_weak_bigrams():
+    """Bigrams mode with weak_bigrams only uses provided bigrams."""
+    generator = get_generator()
+    wb = {"th": 10, "he": 8, "er": 5}
+    result = generator.generate(lang="en", mode="bigrams", weak_bigrams=wb, target_length=50)
+    tokens = result.strip().split(" ")
+    for token in tokens:
+        assert token in wb, f"Token {repr(token)} not in weak_bigrams"
+
+
 # ─── API: /practice/text ──────────────────────────────────────────────────────
 
 @pytest.mark.asyncio
@@ -76,6 +106,26 @@ async def test_api_adaptive_returns_text(client: AsyncClient):
     r = await client.get("/api/v1/practice/text?lang=en&mode=adaptive&length=200")
     assert r.status_code == 200
     assert len(r.json()["text"]) > 0
+
+
+@pytest.mark.asyncio
+async def test_api_bigrams_mode(client: AsyncClient):
+    r = await client.get("/api/v1/practice/text?lang=en&mode=bigrams&length=200")
+    assert r.status_code == 200
+    data = r.json()
+    assert data["mode"] == "bigrams"
+    tokens = data["text"].strip().split(" ")
+    for token in tokens:
+        assert len(token) == 2, f"Expected bigram, got: {repr(token)}"
+
+
+@pytest.mark.asyncio
+async def test_api_bigrams_mode_ru(client: AsyncClient):
+    r = await client.get("/api/v1/practice/text?lang=ru&mode=bigrams&length=200")
+    assert r.status_code == 200
+    tokens = r.json()["text"].strip().split(" ")
+    for token in tokens:
+        assert len(token) == 2
 
 
 @pytest.mark.asyncio
