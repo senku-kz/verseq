@@ -56,7 +56,7 @@
     </div>
 
     <!-- Live stats -->
-    <div class="row q-gutter-md q-pa-sm">
+    <div v-if="settings.showLiveStats" class="row q-gutter-md q-pa-sm">
       <div class="stat-chip">
         <span class="stat-number">{{ engine.stats.value.wpm }}</span>
         <span class="stat-unit">WPM</span>
@@ -307,7 +307,7 @@ function preventContextMenu(e: MouseEvent) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(128, 128, 128, 0.1);
   border-radius: 8px;
   padding: 8px 16px;
   min-width: 70px;
@@ -316,13 +316,11 @@ function preventContextMenu(e: MouseEvent) {
 .stat-number {
   font-size: 2rem;
   font-weight: 700;
-  color: #fff;
 }
 
 .stat-unit {
   font-size: 0.8rem;
   text-transform: uppercase;
   opacity: 0.6;
-  color: #fff;
 }
 </style>

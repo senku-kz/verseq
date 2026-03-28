@@ -211,7 +211,13 @@ function onFinished(stats: TypingStats) {
         duration_ms: stats.elapsedSeconds * 1000,
         error_matrix_delta: stats.errorMatrix,
       })
-      .catch((err) => console.error('Failed to save session:', err))
+      .then(() => {
+        $q.notify({ type: 'positive', message: 'Session saved', timeout: 1500 })
+      })
+      .catch((err) => {
+        console.error('Failed to save session:', err)
+        $q.notify({ type: 'negative', message: 'Failed to save session — check your connection' })
+      })
   } else {
     // Store error matrix locally for anonymous adaptive mode
     if (Object.keys(stats.errorMatrix).length > 0) {

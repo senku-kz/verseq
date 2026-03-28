@@ -127,6 +127,20 @@
 
           <q-separator dark class="q-mb-md" />
 
+          <!-- Live stats -->
+          <div class="row items-center justify-between q-mb-md">
+            <div>
+              <div class="text-subtitle2">Live stats</div>
+              <div class="text-caption text-grey-5">Show WPM, CPM, accuracy and time while typing</div>
+            </div>
+            <q-toggle
+              v-model="settings.showLiveStats"
+              color="primary"
+            />
+          </div>
+
+          <q-separator dark class="q-mb-md" />
+
           <!-- Advanced mode -->
           <div class="row items-center justify-between">
             <div>

@@ -59,7 +59,10 @@
             </template>
           </q-input>
 
-          <div v-if="errorMsg" class="text-negative text-caption">{{ errorMsg }}</div>
+          <q-banner v-if="errorMsg" dense rounded class="bg-negative text-white q-py-sm">
+            <template #avatar><q-icon name="error_outline" /></template>
+            {{ errorMsg }}
+          </q-banner>
 
           <q-btn
             type="submit"
@@ -125,7 +128,10 @@
             </template>
           </q-input>
 
-          <div v-if="errorMsg" class="text-negative text-caption">{{ errorMsg }}</div>
+          <q-banner v-if="errorMsg" dense rounded class="bg-negative text-white q-py-sm">
+            <template #avatar><q-icon name="error_outline" /></template>
+            {{ errorMsg }}
+          </q-banner>
 
           <q-btn
             type="submit"
@@ -195,11 +201,17 @@ async function doRegister() {
 
 function extractErrorMsg(err: unknown, fallback: string): string {
   if (err && typeof err === 'object') {
-    const e = err as Record<string, unknown>
-    const resp = e.response as Record<string, unknown> | undefined
-    if (resp?.data && typeof resp.data === 'object') {
-      const data = resp.data as Record<string, unknown>
+    const resp = (err as Record<string, unknown>).response as Record<string, unknown> | undefined
+    const data = resp?.data as Record<string, unknown> | undefined
+    if (data) {
+      // Simple string detail (e.g. "Incorrect username or password")
       if (typeof data.detail === 'string') return data.detail
+      // Pydantic validation array: [{msg: "Value error, ...", loc: [...]}]
+      if (Array.isArray(data.detail) && data.detail.length > 0) {
+        const msg = (data.detail[0] as Record<string, unknown>).msg as string ?? ''
+        // Strip Pydantic "Value error, " prefix
+        return msg.replace(/^Value error,\s*/i, '')
+      }
     }
   }
   return fallback

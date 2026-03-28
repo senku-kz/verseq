@@ -10,8 +10,9 @@ export const useSettingsStore = defineStore(
     const practiceLength = ref(300)
     const soundEnabled = ref(false)
     const advancedMode = ref(false)
+    const showLiveStats = ref(true)
 
-    return { lang, showKeyboard, practiceMode, practiceLength, soundEnabled, advancedMode }
+    return { lang, showKeyboard, practiceMode, practiceLength, soundEnabled, advancedMode, showLiveStats }
   },
   { persist: true }
 )

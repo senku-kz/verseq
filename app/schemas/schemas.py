@@ -16,8 +16,8 @@ class RegisterRequest(BaseModel):
     @field_validator("password")
     @classmethod
     def password_min_length(cls, v: str) -> str:
-        if len(v) < 8:
-            raise ValueError("Password must be at least 8 characters long")
+        if len(v) < 6:
+            raise ValueError("Password must be at least 6 characters long")
         return v
 
 
@@ -102,6 +102,8 @@ class StatsResponse(BaseModel):
     sessions: list[SessionHistoryItem]
     avg_wpm: float
     best_wpm: float
+    avg_cpm: float
+    best_cpm: float
     avg_accuracy: float
     total_sessions: int
     total_chars_typed: int

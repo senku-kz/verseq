@@ -152,13 +152,7 @@ export const authApi = {
   },
 
   async login(data: { username: string; password: string }): Promise<TokenResponse> {
-    // OAuth2 form format
-    const formData = new URLSearchParams()
-    formData.append('username', data.username)
-    formData.append('password', data.password)
-    const response = await api.post<TokenResponse>('/auth/token', formData, {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    })
+    const response = await api.post<TokenResponse>('/auth/login', data)
     return response.data
   },
 
@@ -170,7 +164,7 @@ export const authApi = {
   },
 
   async me(): Promise<UserResponse> {
-    const response = await api.get<UserResponse>('/users/me')
+    const response = await api.get<UserResponse>('/auth/me')
     return response.data
   },
 }

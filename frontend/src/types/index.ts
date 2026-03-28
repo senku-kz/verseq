@@ -101,6 +101,8 @@ export interface StatsData {
   sessions: SessionHistoryItem[]
   avg_wpm: number
   best_wpm: number
+  avg_cpm: number
+  best_cpm: number
   avg_accuracy: number
   total_sessions: number
   total_chars_typed: number

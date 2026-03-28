@@ -85,7 +85,5 @@ async def get_current_user_optional(
 ):
     if token is None:
         return None
-    try:
-        return await get_current_user(token=token, db=db)
-    except HTTPException:
-        return None
+    # Token was provided — must be valid. Raise 401 so the client can refresh.
+    return await get_current_user(token=token, db=db)

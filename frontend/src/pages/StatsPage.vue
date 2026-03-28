@@ -24,7 +24,7 @@
       <template v-else>
         <!-- ── Summary cards ──────────────────────────── -->
         <div class="row q-col-gutter-md q-mb-lg">
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-2">
             <q-card class="summary-card">
               <q-card-section class="text-center">
                 <div class="text-h2 text-orange">{{ stats?.streak_days ?? 0 }}</div>
@@ -32,15 +32,31 @@
               </q-card-section>
             </q-card>
           </div>
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-2">
             <q-card class="summary-card">
               <q-card-section class="text-center">
-                <div class="text-h2 text-primary">{{ stats?.best_wpm?.toFixed(1) ?? '—' }}</div>
+                <div class="text-h2 text-primary">{{ stats?.best_cpm?.toFixed(0) ?? '—' }}</div>
+                <div class="text-caption text-grey-5 q-mt-xs">Best CPM</div>
+              </q-card-section>
+            </q-card>
+          </div>
+          <div class="col-12 col-sm-6 col-md-2">
+            <q-card class="summary-card">
+              <q-card-section class="text-center">
+                <div class="text-h2 text-blue-4">{{ stats?.avg_cpm?.toFixed(0) ?? '—' }}</div>
+                <div class="text-caption text-grey-5 q-mt-xs">Avg CPM</div>
+              </q-card-section>
+            </q-card>
+          </div>
+          <div class="col-12 col-sm-6 col-md-2">
+            <q-card class="summary-card">
+              <q-card-section class="text-center">
+                <div class="text-h2 text-purple-4">{{ stats?.best_wpm?.toFixed(1) ?? '—' }}</div>
                 <div class="text-caption text-grey-5 q-mt-xs">Best WPM</div>
               </q-card-section>
             </q-card>
           </div>
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-2">
             <q-card class="summary-card">
               <q-card-section class="text-center">
                 <div class="text-h2 text-positive">{{ stats?.avg_accuracy?.toFixed(1) ?? '—' }}%</div>
@@ -48,7 +64,7 @@
               </q-card-section>
             </q-card>
           </div>
-          <div class="col-12 col-sm-6 col-md-3">
+          <div class="col-12 col-sm-6 col-md-2">
             <q-card class="summary-card">
               <q-card-section class="text-center">
                 <div class="text-h2 text-secondary">{{ stats?.total_sessions ?? 0 }}</div>
@@ -58,10 +74,22 @@
           </div>
         </div>
 
-        <!-- ── WPM Chart ──────────────────────────────── -->
+        <!-- ── CPM / WPM Chart ────────────────────────── -->
         <q-card class="q-mb-lg">
           <q-card-section>
-            <div class="text-subtitle1 q-mb-md">WPM History (last {{ chartSessions.length }} sessions)</div>
+            <div class="row items-center q-mb-md">
+              <div class="text-subtitle1">Speed History (last {{ chartSessions.length }} sessions)</div>
+              <q-space />
+              <q-btn-toggle
+                v-model="chartMetric"
+                :options="[{ label: 'CPM', value: 'cpm' }, { label: 'WPM', value: 'wpm' }]"
+                color="primary"
+                text-color="white"
+                toggle-color="deep-orange"
+                unelevated
+                dense
+              />
+            </div>
             <div v-if="chartSessions.length === 0" class="text-grey-5 text-center q-pa-md">
               No sessions yet — start typing!
             </div>
@@ -133,7 +161,7 @@
                 class="wpm-tooltip"
                 :style="{ left: tooltipLeft + 'px', top: '8px' }"
               >
-                <div class="text-weight-bold">{{ tooltipItem.wpm.toFixed(1) }} WPM</div>
+                <div class="text-weight-bold">{{ chartMetric === 'cpm' ? tooltipItem.cpm.toFixed(0) + ' CPM' : tooltipItem.wpm.toFixed(1) + ' WPM' }}</div>
                 <div class="text-caption">{{ formatDate(tooltipItem.created_at) }}</div>
               </div>
             </div>
@@ -287,26 +315,32 @@ const PADDING_BOTTOM = 24
 const svgWidth = ref(600)
 const svgHeight = 200
 const chartWrapper = ref<HTMLElement | null>(null)
+const chartMetric = ref<'cpm' | 'wpm'>('cpm')
 
 const chartSessions = computed(() => {
   if (!stats.value) return []
   return [...stats.value.sessions].reverse().slice(-30)
 })
 
-const maxWpm = computed(() => Math.max(...chartSessions.value.map((s) => s.wpm), 10))
-const minWpm = computed(() => Math.min(...chartSessions.value.map((s) => s.wpm), 0))
+const chartValues = computed(() =>
+  chartSessions.value.map((s) => chartMetric.value === 'cpm' ? s.cpm : s.wpm)
+)
+
+const maxValue = computed(() => Math.max(...chartValues.value, chartMetric.value === 'cpm' ? 50 : 10))
 
 const yTicks = computed(() => {
-  const top = Math.ceil((maxWpm.value + 10) / 10) * 10
+  const step = chartMetric.value === 'cpm' ? 50 : 10
+  const top = Math.ceil((maxValue.value + step) / step) * step
   const ticks: number[] = []
-  for (let v = 0; v <= top; v += 10) ticks.push(v)
+  for (let v = 0; v <= top; v += step) ticks.push(v)
   return ticks
 })
 
-function yScale(wpm: number): number {
-  const top = Math.ceil((maxWpm.value + 10) / 10) * 10
+function yScale(value: number): number {
+  const step = chartMetric.value === 'cpm' ? 50 : 10
+  const top = Math.ceil((maxValue.value + step) / step) * step
   const chartH = svgHeight - PADDING_TOP - PADDING_BOTTOM
-  return PADDING_TOP + chartH - (wpm / top) * chartH
+  return PADDING_TOP + chartH - (value / top) * chartH
 }
 
 function xScale(idx: number): number {
@@ -316,7 +350,7 @@ function xScale(idx: number): number {
 }
 
 const pointCoords = computed(() =>
-  chartSessions.value.map((s, i) => ({ x: xScale(i), y: yScale(s.wpm) }))
+  chartValues.value.map((v, i) => ({ x: xScale(i), y: yScale(v) }))
 )
 
 const linePoints = computed(() =>

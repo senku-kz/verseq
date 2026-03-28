@@ -101,9 +101,12 @@ async def get_stats(
     ]
 
     wpm_values = [s.wpm for s in sessions]
+    cpm_values = [s.cpm for s in sessions]
     acc_values = [s.accuracy for s in sessions]
     avg_wpm = sum(wpm_values) / len(wpm_values) if wpm_values else 0.0
     best_wpm = max(wpm_values) if wpm_values else 0.0
+    avg_cpm = sum(cpm_values) / len(cpm_values) if cpm_values else 0.0
+    best_cpm = max(cpm_values) if cpm_values else 0.0
     avg_accuracy = sum(acc_values) / len(acc_values) if acc_values else 0.0
 
     # total_chars_typed: sum of cpm * duration_ms / 60000
@@ -120,6 +123,8 @@ async def get_stats(
         sessions=session_items,
         avg_wpm=round(avg_wpm, 1),
         best_wpm=round(best_wpm, 1),
+        avg_cpm=round(avg_cpm, 1),
+        best_cpm=round(best_cpm, 1),
         avg_accuracy=round(avg_accuracy, 1),
         total_sessions=len(sessions),
         total_chars_typed=total_chars,
