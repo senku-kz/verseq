@@ -3,7 +3,7 @@ from httpx import AsyncClient
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.models import TypingSession, User
+from app.models.models import TypingSession
 
 
 # ─── helpers ──────────────────────────────────────────────────────────────────

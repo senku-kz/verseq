@@ -15,7 +15,7 @@ class LessonService:
 
     def get_lesson(self, lang: str, lesson_id: int) -> dict | None:
         lessons = self.get_lessons(lang)
-        return next((l for l in lessons if l["id"] == lesson_id), None)
+        return next((les for les in lessons if les["id"] == lesson_id), None)
 
     def get_exercise(self, lang: str, lesson_id: int, exercise_id: str) -> dict | None:
         lesson = self.get_lesson(lang, lesson_id)

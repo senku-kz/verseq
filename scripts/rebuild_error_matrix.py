@@ -13,11 +13,11 @@ import argparse
 
 sys.path.insert(0, ".")
 
-from sqlalchemy import select, text
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
 from app.core.config import get_settings
-from app.models.models import Base, TypingSession, UserErrorMatrix
+from app.models.models import TypingSession, UserErrorMatrix
 
 
 async def rebuild(user_id: int | None, session: AsyncSession) -> None:
