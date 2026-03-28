@@ -74,7 +74,7 @@
 
     <!-- Loading state -->
     <div v-if="loading && !currentText" class="column items-center q-pa-xl">
-      <q-spinner-dots color="primary" size="3rem" />
+      <q-spinner-dots color="primary" size="48px" />
       <p class="q-mt-md text-grey">Loading text...</p>
     </div>
 

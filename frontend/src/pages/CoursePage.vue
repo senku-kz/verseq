@@ -19,7 +19,7 @@
 
     <!-- Loading -->
     <div v-if="loading" class="column items-center q-pa-xl">
-      <q-spinner-dots color="primary" size="3rem" />
+      <q-spinner-dots color="primary" size="48px" />
       <p class="q-mt-md text-grey">Loading lessons...</p>
     </div>
 

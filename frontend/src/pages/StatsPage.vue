@@ -11,7 +11,7 @@
     <template v-else>
       <!-- Loading -->
       <div v-if="loading" class="column items-center q-mt-xl">
-        <q-spinner color="primary" size="3rem" />
+        <q-spinner color="primary" size="48px" />
         <div class="q-mt-sm text-grey-5">Loading stats…</div>
       </div>
 

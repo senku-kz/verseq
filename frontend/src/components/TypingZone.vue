@@ -7,7 +7,6 @@
       class="hidden-input"
       :disabled="disabled"
       @keydown="onKeydown"
-      @blur="refocusIfNotDisabled"
       autocomplete="off"
       autocorrect="off"
       autocapitalize="off"
@@ -219,14 +218,6 @@ function focusInput() {
   if (!props.disabled) {
     const input = hiddenInput.value ?? mobileInput.value
     input?.focus()
-  }
-}
-
-function refocusIfNotDisabled() {
-  if (!props.disabled) {
-    nextTick(() => {
-      hiddenInput.value?.focus()
-    })
   }
 }
 
