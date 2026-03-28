@@ -15,6 +15,7 @@
       >
         <span v-if="key.labelShift" class="key-shift-label">{{ key.labelShift }}</span>
         <span class="key-main-label">{{ key.label }}</span>
+        <span v-if="key.homeKey" class="key-home-dot"></span>
       </div>
     </div>
   </div>
@@ -67,12 +68,18 @@ watch(
   }
 )
 
+const HOME_KEYS: Record<string, string[]> = {
+  en: ['f', 'j'],
+  ru: ['а', 'о'],
+}
+
 interface KeyDef {
   id: string
   label: string
   labelShift?: string
   color: string
   extraClass?: string
+  homeKey: boolean
   // The logical key value(s) this key represents
   logicalKey: string[]
 }
@@ -153,6 +160,8 @@ const keyboardRows = computed<KeyDef[][]>(() => {
   const layoutMap = getLayoutMap(props.layout)
   const rows = props.layout === 'en' ? EN_ROWS : RU_ROWS
 
+  const homeKeys = HOME_KEYS[props.layout] ?? []
+
   return rows.map((row) =>
     row.map((keyDef) => {
       const info = layoutMap[keyDef.key]
@@ -166,6 +175,7 @@ const keyboardRows = computed<KeyDef[][]>(() => {
         labelShift,
         color,
         extraClass: keyDef.extraClass,
+        homeKey: homeKeys.includes(keyDef.key),
         logicalKey: [keyDef.key, keyDef.key.toLowerCase(), keyDef.key.toUpperCase()].filter(Boolean),
       }
     })
@@ -195,5 +205,17 @@ function isPressedKey(key: KeyDef): boolean {
 .keyboard-compact {
   transform: scale(0.82);
   transform-origin: top center;
+}
+
+.key-home-dot {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  pointer-events: none;
 }
 </style>
