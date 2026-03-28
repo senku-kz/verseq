@@ -29,12 +29,12 @@ class AdaptiveService:
             for bigram, count in delta.items():
                 matrix[bigram] = matrix.get(bigram, 0) + count
             record.matrix_json = json.dumps(matrix)
-            record.updated_at = datetime.now(timezone.utc)
+            record.updated_at = datetime.now(timezone.utc).replace(tzinfo=None)
         else:
             record = UserErrorMatrix(
                 user_id=user_id,
                 matrix_json=json.dumps(delta),
-                updated_at=datetime.now(timezone.utc),
+                updated_at=datetime.now(timezone.utc).replace(tzinfo=None),
             )
             db.add(record)
         await db.commit()
