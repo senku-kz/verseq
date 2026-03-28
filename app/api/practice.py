@@ -27,12 +27,12 @@ async def get_practice_text(
 ):
     if lang not in VALID_LANGS:
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             detail=f"lang must be one of {VALID_LANGS}",
         )
     if mode not in VALID_MODES:
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             detail=f"mode must be one of {VALID_MODES}",
         )
 

@@ -1,0 +1,29 @@
+# Python
+.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Database (use Docker volume instead)
+*.db
+*.sqlite
+
+# Frontend build artifacts (rebuilt inside Docker)
+frontend/node_modules/
+frontend/dist/
+frontend/.quasar/
+
+# Git / IDE
+.git/
+.gitignore
+.idea/
+.vscode/
+*.swp
+
+# Docs / misc
+*.md
+.env
+.env.*
+!.env.example

@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import auth, lessons, practice, sessions, stats
 
-app = FastAPI(title="VerseQ API", version="0.1.0")
+app = FastAPI(title="VerseQ API", version="0.1.0", redirect_slashes=False)
 
 app.add_middleware(
     CORSMiddleware,

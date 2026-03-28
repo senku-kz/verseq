@@ -93,7 +93,7 @@ export const practiceApi = {
 // Sessions API
 export const sessionsApi = {
   async submit(data: SessionSubmit): Promise<SessionResponse> {
-    const response = await api.post<SessionResponse>('/sessions', data)
+    const response = await api.post<SessionResponse>('/sessions/', data)
     return response.data
   },
 }
